@@ -1,0 +1,27 @@
+Private Sub Worksheet_Change(ByVal Target As Range)
+    If Range("A1").Value = "operator" Then
+        With ActiveSheet.PageSetup
+            .Orientation = xlPortrait
+            .Zoom = False
+            .FitToPagesWide = 1
+            .FitToPagesTall = False
+            .LeftMargin = Application.InchesToPoints(0.25)
+            .RightMargin = Application.InchesToPoints(0.25)
+            .TopMargin = Application.InchesToPoints(0.25)
+            .BottomMargin = Application.InchesToPoints(0.25)
+        End With
+        Columns("D:F").Hidden = True
+    Else
+        With ActiveSheet.PageSetup
+            .Orientation = xlLandscape
+            .Zoom = False
+            .FitToPagesWide = 1
+            .FitToPagesTall = True
+            .LeftMargin = Application.InchesToPoints(0.25)
+            .RightMargin = Application.InchesToPoints(0.25)
+            .TopMargin = Application.InchesToPoints(0.25)
+            .BottomMargin = Application.InchesToPoints(0.25)
+        End With
+        Columns("D:F").Hidden = False
+    End If
+End Sub
